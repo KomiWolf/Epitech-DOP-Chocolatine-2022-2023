@@ -1,0 +1,29 @@
+name: chocolatine
+
+on:
+  push:
+    branches-ignore:
+    - "ga-ignore-*"
+  pull_request:
+    branches-ignore:
+    - "ga-ignore-*"
+
+env:
+  SOURCE: my_own_github_action
+  MIRROR_URL: "EpitechPromo2027/B-DOP-200-PAR-2-1-chocolatine-eric1.xu"
+  EXECUTABLES: "choco_test"
+  GITHUB_PRIVATE_SSH_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
+  CHECK_CODING_STYLE: bash/check.sh
+  DISPLAY: bash/display_when_fail.sh
+
+jobs:
+  check_coding_style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch_depth: 0
+      - name: launch $CHECK_CODING_STYLE
+        run: ./$CHECK_CODING_STYLE $(pwd) $(pwd)
+      - name: checking the results
+        run: ./$DISPLAY && exit $? || exit 1
