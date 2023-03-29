@@ -1,5 +1,0 @@
-{
-    "yaml.schemas": {
-        "https://json.schemastore.org/github-workflow.json": "file:///home/xeric/epitech/epitechsem2/devops/my-own-github-action/.github/workflows/chocolatine.yml"
-    }
-}
