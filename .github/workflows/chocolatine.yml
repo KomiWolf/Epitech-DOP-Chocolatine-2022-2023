@@ -74,8 +74,8 @@ jobs:
         fetch-depth: 0
     - name: Launch_unit_test
       run: |
-      chmod +x ./$LAUNCH_CODE
-      ./$LAUNCH_CODE "make tests_run && exit  $? || exit 1"
+        chmod +x ./$LAUNCH_CODE
+        ./$LAUNCH_CODE "make tests_run && exit  $? || exit 1"
 
   push_to_mirror:
     runs-on: ubuntu_latest
