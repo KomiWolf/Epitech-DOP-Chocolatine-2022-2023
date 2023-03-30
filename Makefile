@@ -43,10 +43,13 @@ clean_tests:
 
 fclean:		clean
 	$(RM) $(NAME)
+	$(RM) $(TEST_NAME)
 
 tests_run: clean_tests
+tests_run: SRC	+=	$(TEST_SRC)
+tests_run: CFLAGS	+=	$(TEST_FLAGS)
 tests_run: $(TEST_OBJ) $(OBJ)
-	$(CC) -o $(TEST_NAME) $(CFLAGS) $(CPPFLAGS) $(TEST_SRC) $(SRC)
+	$(CC) -o $(TEST_NAME) $(CFLAGS) $(SRC)
 
 re:		fclean all
 
