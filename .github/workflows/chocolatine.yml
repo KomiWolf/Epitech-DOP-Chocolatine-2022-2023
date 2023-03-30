@@ -24,6 +24,10 @@ jobs:
         with:
           fetch_depth: 0
       - name: launch $CHECK_CODING_STYLE
-        run: ./$CHECK_CODING_STYLE $(pwd) $(pwd)
+        run: |
+          chmod +x ./$CHECK_CODING_STYLE
+          ./$CHECK_CODING_STYLE $(pwd) $(pwd)
       - name: checking the results
-        run: ./$DISPLAY && exit $? || exit 1
+        run: |
+          chmod +x ./$DISPLAY
+          ./$DISPLAY && exit $? || exit 1
