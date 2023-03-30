@@ -86,7 +86,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Search key
-      run: E=${{ env.GITHUB_PRIVATE_SSH_KEY }} && echo ${#E}
+      run: E="${{ env.GITHUB_PRIVATE_SSH_KEY }}" && echo ${#E}
     - name: Push all files to the mirror repository
       uses: pixta-dev/repository-mirroring-action@v1
       with:
