@@ -27,11 +27,11 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: launch $CHECK_CODING_STYLE
+      - name: Launch $CHECK_CODING_STYLE
         run: |
           chmod +x ./$CHECK_CODING_STYLE
           ./$CHECK_CODING_STYLE $(pwd) $(pwd)
-      - name: checking the results
+      - name: Checking the results
         run: |
           chmod +x ./$DISPLAY
           ./$DISPLAY && exit $? || exit 1
@@ -47,14 +47,14 @@ jobs:
         fetch-depth: 0
     - name: Pull Docker image
       run: sudo docker pull epitechcontent/epitest-docker
-    - name: launch code
+    - name: Launch code
       run: |
         cat -e main.c
         chmod +x ./$LAUNCH_CODE
         ./$LAUNCH_CODE "make && exit $? || exit 1"
-    - name: clean folder
+    - name: Clean folder
       run: ./$LAUNCH_CODE "make clean && exit $? || exit 1"
-    - name: check_binary
+    - name: Check_binary
       run: |
         IFS=',' read -ra VARS <<< "${EXECUTABLES}"
         ./$LAUNCH_CODE "chmod +x ./${CHECK_BINARY} && ./${CHECK_BINARY} ${VARS[@]} && exit $? || exit 1"
@@ -72,8 +72,10 @@ jobs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-    - name: launch_unit_test
-      run: ./$LAUNCH_CODE "make tests_run && exit  $? || exit 1"
+    - name: Launch_unit_test
+      run: |
+      chmod +x ./$LAUNCH_CODE
+      ./$LAUNCH_CODE "make tests_run && exit  $? || exit 1"
 
   push_to_mirror:
     runs-on: ubuntu_latest
