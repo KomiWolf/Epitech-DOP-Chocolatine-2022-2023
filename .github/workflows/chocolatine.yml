@@ -52,7 +52,7 @@ jobs:
         chmod +x ./$LAUNCH_CODE
         ./$LAUNCH_CODE "make && exit $? || exit 1"
     - name: clean folder
-      ./$LAUNCH_CODE "make clean && exit $? || exit 1"
+      run: ./$LAUNCH_CODE "make clean && exit $? || exit 1"
     - name: check_binary
       run: |
         IFS=',' read -ra VARS <<< "${EXECUTABLES}"
