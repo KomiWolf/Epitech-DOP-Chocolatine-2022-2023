@@ -88,5 +88,5 @@ jobs:
     - name: Push all files to the mirror repository
       uses: pixta-dev/repository-mirroring-actions@v1
       with:
-        target_repo_url: git@github.com:{{ env.MIRROR_URL }}.git
+        target_repo_url: git@github.com:${{ env.MIRROR_URL }}.git
         ssh_private_key: ${{ env.GITHUB_PRIVATE_SSH_KEY }}

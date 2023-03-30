@@ -40,8 +40,9 @@ clean:
 clean_tests:
 	$(RM) *.gcda
 	$(RM) *.gcno
+	$(RM) $(TEST_OBJ)
 
-fclean:		clean
+fclean:		clean clean_tests
 	$(RM) $(NAME)
 	$(RM) $(TEST_NAME)
 
