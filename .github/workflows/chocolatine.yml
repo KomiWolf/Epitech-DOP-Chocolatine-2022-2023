@@ -17,7 +17,7 @@ env:
   DISPLAY: bash/display_when_fail.sh
   LAUNCH_CODE: bash/run_docker.sh
   CHECK_BINARY: bash/check_exist.sh
-  CHECK_EXECUTION: bash/check_executin.sh
+  CHECK_EXECUTION: bash/check_execution.sh
 
 jobs:
 
